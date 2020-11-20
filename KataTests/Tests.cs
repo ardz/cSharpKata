@@ -1,7 +1,7 @@
 using cSharpKata.Katas;
 using Xunit;
 
-namespace KataTests.Tests
+namespace KataTests
 {
     public class Tests
     {
@@ -24,6 +24,15 @@ namespace KataTests.Tests
             Assert.Equal(2, CharacterCounting.DuplicateCount("aabBcde"));
             Assert.Equal(1, CharacterCounting.DuplicateCount("Indivisibility"));
             Assert.Equal(2, CharacterCounting.DuplicateCount("Indivisibilities"));
+        }
+
+        [Fact]
+        public void EqualSidesArrayTest()
+        {
+            Assert.Equal(3, EqualSidesArray.FindEvenIndex(new int[] { 1, 2, 3, 4, 3, 2, 1 }));
+            Assert.Equal(1, EqualSidesArray.FindEvenIndex(new int[] { 1, 100, 50, -51, 1, 1 }));
+            Assert.Equal(-1,EqualSidesArray.FindEvenIndex(new int[] { 1, 2, 3, 4, 5, 6 }));
+            Assert.Equal(3, EqualSidesArray.FindEvenIndex(new int[] { 20, 10, 30, 10, 10, 15, 35 }));
         }
     }
 }
