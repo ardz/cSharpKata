@@ -31,8 +31,29 @@ namespace KataTests
         {
             Assert.Equal(3, EqualSidesArray.FindEvenIndex(new int[] { 1, 2, 3, 4, 3, 2, 1 }));
             Assert.Equal(1, EqualSidesArray.FindEvenIndex(new int[] { 1, 100, 50, -51, 1, 1 }));
-            Assert.Equal(-1,EqualSidesArray.FindEvenIndex(new int[] { 1, 2, 3, 4, 5, 6 }));
+            Assert.Equal(-1, EqualSidesArray.FindEvenIndex(new int[] { 1, 2, 3, 4, 5, 6 }));
             Assert.Equal(3, EqualSidesArray.FindEvenIndex(new int[] { 20, 10, 30, 10, 10, 15, 35 }));
+        }
+        [Fact]
+        public void ParenthesesValid()
+        {
+            Assert.True(Parentheses.ValidParentheses("()"));
+        }
+
+        [Fact]
+        public void ParenthesesNotVaild()
+        {
+            Assert.False(Parentheses.ValidParentheses(")(((("));
+        }
+
+        [Fact]
+        public void ArrayDiffTest()
+        {
+            //Assert.Equal(new int[] { 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2 }, new int[] { 1 }));
+            Assert.Equal(new int[] { 2, 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { 1 }));
+            //Assert.Equal(new int[] { 1 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { 2 }));
+            //Assert.Equal(new int[] { 1, 2, 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { }));
+            //Assert.Equal(new int[] { }, ArrayDiff.CalculateDiff(new int[] { }, new int[] { 1, 2 }));
         }
     }
 }
