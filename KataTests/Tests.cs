@@ -49,11 +49,26 @@ namespace KataTests
         [Fact]
         public void ArrayDiffTest()
         {
-            //Assert.Equal(new int[] { 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2 }, new int[] { 1 }));
+            Assert.Equal(new int[] { 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2 }, new int[] { 1 }));
             Assert.Equal(new int[] { 2, 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { 1 }));
-            //Assert.Equal(new int[] { 1 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { 2 }));
-            //Assert.Equal(new int[] { 1, 2, 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { }));
-            //Assert.Equal(new int[] { }, ArrayDiff.CalculateDiff(new int[] { }, new int[] { 1, 2 }));
+            Assert.Equal(new int[] { 1 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { 2 }));
+            Assert.Equal(new int[] { 1, 2, 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { }));
+            Assert.Equal(new int[] { }, ArrayDiff.CalculateDiff(new int[] { }, new int[] { 1, 2 }));
+        }
+
+        [Fact]
+        public void ZeroMoverTest()
+        {
+            // Assert.Equal(new int[] { 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 }, Kata.MoveZeroes(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 }));
+        }
+
+        [Fact]
+        public void CamelKata()
+        {
+            Assert.Equal("theStealthWarrior", CamelConvertor.ToCamelCase("the_stealth_warrior"));
+            Assert.Equal("TheStealthWarrior", CamelConvertor.ToCamelCase("The-Stealth-Warrior"));
+            Assert.Equal("theStealthWarrior", CamelConvertor.SmartAss("the_stealth_warrior"));
+            Assert.Equal("TheStealthWarrior", CamelConvertor.SmartAss("The-Stealth-Warrior"));
         }
     }
 }
