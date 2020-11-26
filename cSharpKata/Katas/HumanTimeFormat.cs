@@ -8,13 +8,9 @@ namespace cSharpKata.Katas
     {
         public static string Duration(int inputSeconds)
         {
-            string readableTimeSpan;
-
             if (inputSeconds == 0)
             {
-                readableTimeSpan = "now";
-
-                return readableTimeSpan;
+                return "now";
             }
 
             var foo = new Dictionary<string, int>();

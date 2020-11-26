@@ -9,7 +9,7 @@ namespace KataTests
         [Fact]
         public void SecondsToHumanReadableTests()
         {
-            //Assert.Equal("now", HumanTimeFormat.Duration(0));
+            Assert.Equal("now", HumanTimeFormat.Duration(0));
             Assert.Equal("1 second", HumanTimeFormat.Duration(1));
             Assert.Equal("1 minute and 2 seconds", HumanTimeFormat.Duration(62));
             Assert.Equal("2 minutes", HumanTimeFormat.Duration(120));
