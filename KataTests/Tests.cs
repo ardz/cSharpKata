@@ -5,6 +5,24 @@ namespace KataTests
 {
     public class Tests
     {
+
+        [Fact]
+        public void SecondsToHumanReadableTests()
+        {
+            //Assert.Equal("now", HumanTimeFormat.Duration(0));
+            Assert.Equal("1 second", HumanTimeFormat.Duration(1));
+            Assert.Equal("1 minute and 2 seconds", HumanTimeFormat.Duration(62));
+            Assert.Equal("2 minutes", HumanTimeFormat.Duration(120));
+            Assert.Equal("1 hour, 1 minute and 2 seconds", HumanTimeFormat.Duration(3662));
+            Assert.Equal("182 days, 1 hour, 44 minutes and 40 seconds", HumanTimeFormat.Duration(15731080));
+            Assert.Equal("4 years, 68 days, 3 hours and 4 minutes", HumanTimeFormat.Duration(132030240));
+            Assert.Equal("6 years, 192 days, 13 hours, 3 minutes and 54 seconds", HumanTimeFormat.Duration(205851834));
+            Assert.Equal("8 years, 12 days, 13 hours, 41 minutes and 1 second", HumanTimeFormat.Duration(253374061));
+            Assert.Equal("7 years, 246 days, 15 hours, 32 minutes and 54 seconds", HumanTimeFormat.Duration(242062374));
+            Assert.Equal("3 years, 85 days, 1 hour, 9 minutes and 26 seconds", HumanTimeFormat.Duration(101956166));
+            Assert.Equal("1 year, 19 days, 18 hours, 19 minutes and 46 seconds", HumanTimeFormat.Duration(33243586));
+        }
+
         [Fact]
         public void HumanReadableTest()
         {
@@ -49,17 +67,17 @@ namespace KataTests
         [Fact]
         public void ArrayDiffTest()
         {
-            Assert.Equal(new int[] { 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2 }, new int[] { 1 }));
-            Assert.Equal(new int[] { 2, 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { 1 }));
-            Assert.Equal(new int[] { 1 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { 2 }));
-            Assert.Equal(new int[] { 1, 2, 2 }, ArrayDiff.CalculateDiff(new int[] { 1, 2, 2 }, new int[] { }));
-            Assert.Equal(new int[] { }, ArrayDiff.CalculateDiff(new int[] { }, new int[] { 1, 2 }));
+            Assert.Equal(new int[] { 2 }, ArrayDifference.Calculate(new int[] { 1, 2 }, new int[] { 1 }));
+            Assert.Equal(new int[] { 2, 2 }, ArrayDifference.Calculate(new int[] { 1, 2, 2 }, new int[] { 1 }));
+            Assert.Equal(new int[] { 1 }, ArrayDifference.Calculate(new int[] { 1, 2, 2 }, new int[] { 2 }));
+            Assert.Equal(new int[] { 1, 2, 2 }, ArrayDifference.Calculate(new int[] { 1, 2, 2 }, new int[] { }));
+            Assert.Equal(new int[] { }, ArrayDifference.Calculate(new int[] { }, new int[] { 1, 2 }));
         }
 
         [Fact]
         public void ZeroMoverTest()
         {
-            // Assert.Equal(new int[] { 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 }, Kata.MoveZeroes(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 }));
+            Assert.Equal(new int[] { 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 }, MoveZeroes.Move(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 }));
         }
 
         [Fact]

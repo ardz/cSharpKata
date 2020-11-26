@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace cSharpKata.Katas
 {
-    public class ArrayDiff
+    public class ArrayDifference
     {
-        public static int[] CalculateDiff(int[] a, int[] b)
+        public static int[] Calculate(int[] a, int[] b)
         {
             return a.Where(_ => !b.Contains(_)).ToArray();
         }
