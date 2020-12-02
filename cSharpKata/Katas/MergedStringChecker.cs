@@ -6,7 +6,7 @@ namespace cSharpKata.Katas
     public static class MergedStringChecker
     {
 
-        public static bool isMerge(string s, string part1, string part2)
+        public static bool IsMerge(string s, string part1, string part2)
         {
             var sCharArray = s.ToCharArray(0, s.Length);
 
@@ -17,10 +17,10 @@ namespace cSharpKata.Katas
 
             for (int i = 0; i < part1Length; i++)
             {
-                var c1 = Array.IndexOf(sCharArray, i);
-                var c2 = Array.IndexOf(part1Chars, i);
+                var ci1 = Array.IndexOf(sCharArray, i);
+                var ci2 = Array.IndexOf(part1Chars, i);
 
-                if (c1 != c2)
+                if (ci1 != ci2)
                 {
                     return false; // NO WAY BABY!
                 }
@@ -31,10 +31,10 @@ namespace cSharpKata.Katas
 
             for (int i = 0; i < part2Length; i++)
             {
-                var c1 = Array.IndexOf(sCharArray, i);
-                var c2 = Array.IndexOf(part2Chars, i);
+                var ci1 = Array.IndexOf(sCharArray, i);
+                var ci2 = Array.IndexOf(part2Chars, i);
 
-                if (c1 != c2)
+                if (ci1 != ci2)
                 {
                     return false; // GTFO
                 }
@@ -49,22 +49,22 @@ namespace cSharpKata.Katas
 
             for (int i = 0; i < theSagaLength; i++)
             {
-                var c1 = Array.IndexOf(sCharArray, i);
-                var c2 = Array.IndexOf(theSaga, i);
+                var ci1 = Array.IndexOf(sCharArray, i);
+                var ci2 = Array.IndexOf(theSaga, i);
 
-                if (c1 != c2)
+                if (ci1 != ci2)
                 {
                     return false; // Go home noob
                 }
             }
 
             // final check
+            // sort first
+            var sorted1 = string.Concat(s.OrderBy(c => c));
+            var sorted2 = string.Concat(string.Concat(part1, part2).OrderBy(c => c));
+            
             for (int i = 0; i < s.Length; i++)
             {
-                // sort first
-                var sorted1 = string.Concat(s.OrderBy(c => c));
-                var sorted2 = string.Concat(string.Concat(part1, part2).OrderBy(c => c));
-
                 var char1 = sorted1[i];
                 var char2 = sorted2[i];
 
@@ -73,6 +73,18 @@ namespace cSharpKata.Katas
                     // letter is missing, get rek'd
                     return false;
                 }
+
+                // no wait, it's not the final check, because this kata is bullshit:
+                if (sorted1[i] != sorted2[i])
+                {
+                    return false;
+                }
+            }
+
+            // yes, but no, but yes, this kata is still bullshit:
+            if (sorted1.Length != sorted2.Length)
+            {
+                return false;
             }
 
             return true;

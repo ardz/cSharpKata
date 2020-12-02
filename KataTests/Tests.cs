@@ -23,19 +23,19 @@ namespace KataTests
         [Fact]
         public void HappyPath1()
         {
-            Assert.True(MergedStringChecker.isMerge("codewars", "code", "wars"), "codewars can be created from code and wars");
+            Assert.True(MergedStringChecker.IsMerge("codewars", "code", "wars"), "codewars can be created from code and wars");
         }
 
         [Fact]
         public void HappyPath2()
         {
-            Assert.True(MergedStringChecker.isMerge("codewars", "cdwr", "oeas"), "codewars can be created from cdwr and oeas");
+            Assert.True(MergedStringChecker.IsMerge("codewars", "cdwr", "oeas"), "codewars can be created from cdwr and oeas");
         }
 
         [Fact]
         public void SadPath1()
         {
-            Assert.False(MergedStringChecker.isMerge("codewars", "cod", "wars"), "Codewars are not codwars");
+            Assert.False(MergedStringChecker.IsMerge("codewars", "cod", "wars"), "Codewars are not codwars");
         }
 
         [Fact]
