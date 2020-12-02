@@ -6,6 +6,38 @@ namespace KataTests
     public class Tests
     {
 
+        /// <summary>
+        /// At a job interview, you are challenged to write an algorithm to check if a given string, s, 
+        /// can be formed from two other strings, part1 and part2.
+
+        /// The restriction is that the characters in part1 and part2 should be in the same order as in s.
+
+        /// The interviewer gives you the following example and tells you to figure out the rest from the given test cases.
+
+        /// For example:
+        /// 'codewars' is a merge from 'cdw' and 'oears':
+
+        /// s:  c o d e w a r s = codewars
+        /// part1:  c   d       w         = cdw
+        /// part2:    o     e       a r s   = oears
+        [Fact]
+        public void HappyPath1()
+        {
+            Assert.True(MergedStringChecker.isMerge("codewars", "code", "wars"), "codewars can be created from code and wars");
+        }
+
+        [Fact]
+        public void HappyPath2()
+        {
+            Assert.True(MergedStringChecker.isMerge("codewars", "cdwr", "oeas"), "codewars can be created from cdwr and oeas");
+        }
+
+        [Fact]
+        public void SadPath1()
+        {
+            Assert.False(MergedStringChecker.isMerge("codewars", "cod", "wars"), "Codewars are not codwars");
+        }
+
         [Fact]
         public void SecondsToHumanReadableTests()
         {
@@ -87,6 +119,34 @@ namespace KataTests
             Assert.Equal("TheStealthWarrior", CamelConvertor.ToCamelCase("The-Stealth-Warrior"));
             Assert.Equal("theStealthWarrior", CamelConvertor.SmartAss("the_stealth_warrior"));
             Assert.Equal("TheStealthWarrior", CamelConvertor.SmartAss("The-Stealth-Warrior"));
+        }
+
+        [Fact]
+        public void Mod()
+        {
+            //var seconds = 7854756;
+
+            //var remainder = 4 % 3;
+
+            //bool even = number % 2 == 0;
+        }
+
+        [Fact]
+        public void FizzBuzzTest()
+        {
+
+        }
+
+        [Fact]
+        public void MaxSequenceTest1()
+        {
+
+        }
+
+        [Fact]
+        public void MaxSequenceTest2()
+        {
+
         }
     }
 }
